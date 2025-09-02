@@ -22,7 +22,6 @@ let
     stripRoot = false;
   };
   src = "${rawZip}/Slippi_Playback-x86_64.AppImage";
-
 in
 (import ./common.nix) {
   inherit
@@ -34,9 +33,4 @@ in
     src
     rawZip
     ;
-  extraInstallCommands = ''
-    wrapProgram "$out/bin/${pname}" \
-      --inherit-argv0 \
-      --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations}}"
-  '';
 }

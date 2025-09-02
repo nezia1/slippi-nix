@@ -5,9 +5,9 @@
   version,
   pname,
   src,
-  extraInstallCommands,
   appImageContents ? null,
   rawZip ? null,
+  ...
 }:
 appimageTools.wrapType2 (
   {
@@ -16,7 +16,6 @@ appimageTools.wrapType2 (
       pname
       src
       appImageContents
-      extraInstallCommands
       ;
     nativeBuildInputs = [ makeWrapper ];
     extraPkgs =
